@@ -1,0 +1,7 @@
+sui client ptb \
+        --assign forge @0x830b091068d5d79f18418a517b47a7b7c1386c8d106a86ef6df0e3a0693c11a3 \
+        --assign to_address @0x9bdabfd3218397900b42ccbd2ae8021a3d3b6a10f19be054fefb84599a652f65 \
+        --move-call 0x94da8fc2154a526d9447bc47ac77279a741a311996372680cf1cea09c0e88560::my_module::new_sword forge 3 3 \
+        --assign sword \
+        --transfer-objects "[sword]" to_address \
+        --gas-budget 20000000
