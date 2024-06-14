@@ -52,3 +52,25 @@ sui client call \
     --function new_ballot \
     --args <event-id> <candidate-id> <voter-hash> --gas-budget 50000000
 ```
+
+### Upgrading Sui version with Cargo
+
+1. Mainnet
+
+```bash
+cargo install --locked --git https://github.com/MystenLabs/sui.git --branch mainnet sui
+```
+
+2. Testnet
+
+```bash
+cargo install --locked --git https://github.com/MystenLabs/sui.git --branch testnet sui
+```
+
+3. Devnet
+
+```bash
+cargo install --locked --git https://github.com/MystenLabs/sui.git --branch devnet sui
+```
+
+
