@@ -16,7 +16,8 @@ module vodth::vote{
 
     public struct Ballot has key, store{
         id: UID,
-        voter: String
+        voter: String,
+        candidate: String
     }
 
     fun init(ctx: &mut TxContext) {
@@ -46,12 +47,13 @@ module vodth::vote{
         add_candidate(event, candidate);
     }
 
-    public fun new_ballot(event: &mut Event, candidate_id: ID, voter: String, ctx: &mut TxContext){
+    public fun new_ballot(event: &mut Event, candidate_id: ID, voter: String, candidate: String, ctx: &mut TxContext){
         event.voted = event.voted + 1;
         mutate_candidate(ofield::borrow_mut(&mut event.id, candidate_id));
         let ballot = Ballot{
             id: object::new(ctx),
-            voter: voter
+            voter: voter,
+            candidate: candidate
         };
         add_ballot(ofield::borrow_mut(&mut event.id, candidate_id), ballot);
     }
